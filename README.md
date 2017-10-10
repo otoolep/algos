@@ -1,2 +1,2 @@
 # algos
-Random algorithm implementations
+Various algorithm implementations.
