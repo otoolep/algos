@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+/* Recursive binary search. */
 int BinarySearchR(int* array, int lower, int upper, int target) {
 	if (!array) {
 		return -1;
@@ -22,6 +23,7 @@ int BinarySearchR(int* array, int lower, int upper, int target) {
 	return BinarySearchR(array, lower, center-1, target);
 }
 
+/* Iterative binary search. */
 int BinarySearchI(int* array, int lower, int upper, int target) {
 	if (!array) {
 		return -1;
