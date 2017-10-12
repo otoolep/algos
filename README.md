@@ -1,2 +1,2 @@
 # algos
-Various algorithm implementations.
+Various algorithm implementations, serving as demonstrations for teaching.
