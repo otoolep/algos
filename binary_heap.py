@@ -77,11 +77,24 @@ class MaxHeap(MinHeap):
             # Go up a level and check again.
             i = i / 2
 
-    def __str__(self):
-        return 'Heap: %s' % str(self.heap[1:])
+    def percDown(self, i):
+        while 2 * i <= self.current_size:
+            if 2 * i + 1 > self.current_size:
+                max = 2 * i
+            else:
+                if self.heap[2 * i] < self.heap[2 * i + 1]:
+                    max = 2 * i + 1
+                else:
+                    max = 2 * i
+
+            if self.heap[i] < self.heap[max]:
+                tmp = self.heap[i]
+                self.heap[i] = self.heap[max]
+                self.heap[max] = tmp
+            i = max
 
 
-h = MinHeap()
+h = MaxHeap()
 
 for n in [4,7,6,8,2,4,6,8,2,5,1]:
     print 'Inserting %d' % n
@@ -90,6 +103,6 @@ for n in [4,7,6,8,2,4,6,8,2,5,1]:
     print
 
 while not h.Empty():
-    print 'Min is %d' % h.Pop()
+    print 'Sorted is %d' % h.Pop()
     print h
     print
