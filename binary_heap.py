@@ -13,7 +13,7 @@ class MinHeap(object):
 
     def percUp(self, i):
         # Keep going until the root node.
-        while i // 2 >= 1:
+        while i // 2 > 0:
             # Check if parent node is smaller.
             parent = i/2
             if self.heap[parent] > self.heap[i]:
