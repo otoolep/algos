@@ -1,12 +1,5 @@
 #include <stdio.h>
 
-void print_array(int a[], int l, int r) {
-	for (int i = 0; i <= r; i++) {
-		printf("%d ", a[i]);
-	}
-	printf("\n");
-}
-
 int partition(int a[], int l, int r) {
 	int pivot = a[(l + r) / 2];
 
@@ -37,6 +30,13 @@ void quicksort(int a[], int l, int r) {
 	int i = partition(a, l, r);
 	quicksort(a, l, i - 1);
 	quicksort(a, i, r);
+}
+
+void print_array(int a[], int l, int r) {
+	for (int i = 0; i <= r; i++) {
+		printf("%d ", a[i]);
+	}
+	printf("\n");
 }
 
 int main() {
