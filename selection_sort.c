@@ -18,7 +18,7 @@ void selection_sort(int a[], int l, int r) {
 }
 
 void print_array(int a[], int l, int r) {
-	for (int i = 0; i <= r; i++) {
+	for (int i = l; i <= r; i++) {
 		printf("%d ", a[i]);
 	}
 	printf("\n");
