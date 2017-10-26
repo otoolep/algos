@@ -3,6 +3,10 @@
 // An insertion sort moves 1 each time, but is prepared to
 // go "all the way back". In practise it doesn't have to.
 void insertion_sort(int a[], int l, int r) {
+        if (r-l == 1 || r-l == 0) {
+            return;
+        }
+
         for (int i = l+1; i <= r; i++) {
             for (int j = i; j > l; j--) {
                 if (a[j] < a[j-1]) {
