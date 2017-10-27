@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Use a copy, or printing will empty the stack. :-)
 void print(stack <int> x) {
     while(!x.empty()) {
         cout << x.top() << " ";
