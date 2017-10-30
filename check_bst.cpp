@@ -68,5 +68,5 @@ int main() {
         cout << "Invalid BST!" << endl;
     }
 
-	return 0;
+    return 0;
 }
