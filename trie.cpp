@@ -5,8 +5,6 @@
 
 using namespace::std;
 
-const string ALPHA = string("abcdefghijklmnopqrstuvwxyz");
-
 class Node {
     char c;
     unordered_map<char, Node*> children;
