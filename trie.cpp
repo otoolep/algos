@@ -28,7 +28,7 @@ class Node {
         }
 
         // Terminal node?
-        if (!n->children.size()) {
+        if (n->last()) {
             buf[level+1] = '\0';
             out.push_back(string(buf));
         }
