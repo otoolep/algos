@@ -21,8 +21,8 @@ void dfs_pre(element *elem) {
 		}
 		cout << e->value << " ";
 
-		s.push(e->left);
 		s.push(e->right);
+		s.push(e->left);
 	}
 	cout << endl;
 }
