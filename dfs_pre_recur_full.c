@@ -1,6 +1,5 @@
-#include <iostream>
-
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 
 void print_array(int a[], int l, int r) {
         for (int i = l; i <= r; i++) {
