@@ -1,4 +1,3 @@
-#include <stack>
 #include <vector>
 #include <unordered_map>
 #include <iostream>
@@ -13,6 +12,28 @@ class Node {
     unordered_map<char, Node*> children;
     bool last() {
         return !this->children.size();
+    }
+
+    static void suffixes(Node* n, char buf[], int level, vector<string>& out) {
+        if (n->c != '\0') {
+            buf[level] = n->c;
+        }
+
+        string str = string("abcdefghijklmnopqrstuvwxyz");
+        for (string::iterator it = str.begin(); it != str.end(); it++) {
+            try {
+                Node* m = n->children.at(*it);
+                Node::suffixes(m, buf, level+1, out);
+            } catch (out_of_range) {
+                continue;
+            }
+        }
+
+        // Terminal node?
+        if (!n->children.size()) {
+            buf[level+1] = '\0';
+            out.push_back(string(buf));
+        }
     }
 
     public:
@@ -53,34 +74,11 @@ class Node {
             return true;
         }
 
-        void Suffixes() {
-            stack<Node*> stk = stack<Node*>();
-            string out = string();
-
-            stk.push(this);
-            while(!stk.empty()) {
-                Node* n = stk.top();
-                stk.pop();
-
-                if (n->c != '\0') {
-                    out.push_back(n->c);
-                    if (n->last()) {
-                        cout << out << endl;
-                        out.pop_back();
-                    }
-                }
-
-                std::string str("abcdefghijklmnopqrstuvwxyz");
-                for (string::reverse_iterator rit=str.rbegin(); rit!=str.rend(); ++rit) {
-                    try {
-                        stk.push(n->children.at(*rit));
-                        //cout << "pushing " << *rit << endl;
-                    } catch (out_of_range) {
-                        //cout << "not pushing " << *rit << endl;
-                        continue;
-                    }
-                }
-            }
+        vector<string> Suffixes() {
+            vector<string> v = vector<string>();
+            char buf[256];
+            Node::suffixes(this, buf, -1, v);
+            return v;
         }
 };
 
@@ -95,12 +93,11 @@ int main() {
     root->Append("pyz");
     root->Append("pz");
 
-    //cout << "phil is valid prefix: " << bToStr(root->ValidPrefix("phil")) << endl;
-    //cout << "philip is valid prefix: " << bToStr(root->ValidPrefix("philip")) << endl;
-    //cout << "abc is valid prefix: " << bToStr(root->ValidPrefix("abc")) << endl;
-    //cout << "philippp is valid prefix: " << bToStr(root->ValidPrefix("philippp")) << endl;
+    cout << "py is valid prefix: " << bToStr(root->ValidPrefix("py")) << endl;
 
-    root->Suffixes();
+    for (auto& s: root->Suffixes()) {
+        cout << s << endl;
+    }
 
     return 0;
 }
