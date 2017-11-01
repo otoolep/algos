@@ -10,8 +10,8 @@ void print_array(int a[], int l, int r) {
 
 typedef struct element_t {
 	int value;
-	element_t* left;
-	element_t* right;
+	struct element_t* left;
+	struct element_t* right;
 } element;
 
 void dfs_pre(element *elem, int level, int a[]) {
