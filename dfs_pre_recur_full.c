@@ -1,3 +1,8 @@
+// For fun:
+//
+//  gcc -g -c dfs_pre_recur_full.c
+//  objdump -d -M intel -S dfs_pre_recur_full.o
+
 #include <stdio.h>
 #include <stdlib.h>
 
