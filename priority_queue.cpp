@@ -28,9 +28,11 @@ int main() {
     Point p3(3,6);
     Point p4(4,9);
     Point p5(5,1);
+    Point p6(6,10);
 
     Timeseries* series = new Timeseries();
 
+    series->push(p6);
     series->push(p2);
     series->push(p4);
     series->push(p5);
