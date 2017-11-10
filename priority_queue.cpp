@@ -16,6 +16,13 @@ class Point {
         };
 
         bool operator()(const Point& a, const Point& b) {
+            // This means that in a standard ascending ordering,
+            // a would come after b. This doesn't reflect the
+            // real world, because in the real world we want a
+            // to come before b. But a priority queue spits out
+            // the elements in descending order. So the combination
+            // of this compare, and the priority queue, means we
+            // get elements output in increasing order.
             return a.timestamp > b.timestamp;
         };
 };
