@@ -5,6 +5,8 @@
 
 #include <stack>
 #include <vector>
+#include <assert.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -29,7 +31,7 @@ class Tower {
         // disk. If adding disk would violate invariants,
         // returns -1.
         int push(int v) {
-            if (v <= s.top()) {
+            if (!s.empty() && v <= s.top()) {
                 return -1;
             }
             s.push(v);
@@ -45,10 +47,16 @@ class Tower {
         // than the other tower's top disk.
         bool operator <(const Tower* t) {
             if (s.empty() && !t->s.empty()) {
+                printf("1\n");
                 return true;
             } else if (!s.empty() && t->s.empty()) {
+                printf("2\n");
                 return false;
+            } else if (s.empty() && t->s.empty()) {
+                printf("3\n");
+                return true;
             }
+                printf("4\n");
             return s.top() < t->s.top();
         }
 };
@@ -96,6 +104,13 @@ class Towers {
 };
 
 int main() {
+
+    Tower* t1 = new Tower();
+    Tower* t2 = new Tower();
+
+    t1->push(1);
+    assert(*t1 > *t2);
+
 
     while (0) {
         // locate tower with smallest disk.
