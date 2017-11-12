@@ -1,2 +1,2 @@
 # algos
-Various algorithm implementations.
+Various algorithm and data structure implementations.
