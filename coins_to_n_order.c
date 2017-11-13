@@ -5,16 +5,20 @@
 #define QUARTER 25
 
 void R(int val, int sum, int target, int* count) {
-    if (sum + val > target) {
-        return;
-    } else if (sum + val == target) {
+    if (sum + val == target) {
         (*count)++;
         return;
     }
 
-    R(NICKEL, sum+NICKEL, target, count);
-    R(DIME, sum+DIME, target, count);
-    R(QUARTER, sum+NICKEL, target, count);
+    if (sum+NICKEL <= target) {
+        R(NICKEL, sum+NICKEL, target, count);
+    }
+    if (sum+DIME <= target) {
+        R(DIME, sum+DIME, target, count);
+    }
+    if (sum+QUARTER <= target) {
+        R(QUARTER, sum+QUARTER, target, count);
+    }
 }
 
 int main() {
