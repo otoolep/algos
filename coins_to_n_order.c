@@ -5,7 +5,7 @@
 #define QUARTER 25
 
 void R(int val, int sum, int target, int* count) {
-    if (sum + val == target) {
+    if (sum == target) {
         (*count)++;
         return;
     }
