@@ -43,5 +43,7 @@ def countEval(s, result):
 
     return ways
 
+print countEval('1^0', True)
+print countEval('1^0|0', True)
 print countEval('1^0|0|1', False)
 print countEval('0&0&0&1^1|0', True)
