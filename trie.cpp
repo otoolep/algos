@@ -1,3 +1,4 @@
+// Build a trie data structure.
 #include <vector>
 #include <unordered_map>
 #include <iostream>
