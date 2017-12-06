@@ -39,8 +39,8 @@ int main() {
 	// Create a tree.
 	//
 	//           5
-    //         4   7
-    //       1  6   9
+        //         4   7
+        //       1  6   9
 
 	element* one = newElem(1, NULL, NULL);
 	element* six = newElem(6, NULL, NULL);
