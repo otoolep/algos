@@ -1,3 +1,4 @@
+/* Open recursion calculating Fibonacci numbers. */
 #include <stdio.h>
 
 int fib(int n) {
